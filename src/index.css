@@ -3,87 +3,182 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  background: #0c0c0e;
+  color: #ffffff;
+  font-family: "Inter", Arial, sans-serif;
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
+  color: #cfcfcf;
   text-decoration: none;
-  color: black;
+  transition: 0.25s ease;
+}
+
+a:hover {
+  color: #8a6bff;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
-  height: 5px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(114, 113, 113);
-  border-radius: 10px;
-  height: 200px;
+  background: linear-gradient(180deg, #2f2f3b, #1a1a24);
+  border-radius: 6px;
 }
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
+::-webkit-scrollbar-thumb:hover {
+  background: #8a6bff;
 }
 
-.category-btn:hover {
-  background-color: #fc1503 !important;
-  color: white !important;
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: #0c0c0e;
+  height: 100vh;
+  padding: 15px 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
 }
 
-.category-btn:hover span {
-  color: white !important;
-}
-
-.react-player {
-  height: 77vh !important;
-  width: 100% !important;
-}
-
-.search-bar {
-  border: none;
-  outline: none;
-  width: 350px;
+.sidebar-title {
+  padding: 20px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
 }
 
 .category-btn {
-  font-weight: bold !important;
-  text-transform: capitalize;
+  width: 85%;
+  padding: 14px 20px;
+  margin: 10px auto;
+  background: #18181c;
+  color: #dadada;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.category-btn:hover {
+  background: #8a6bff;
+  color: white !important;
+  border-color: #a48dff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(138, 107, 255, 0.45);
+}
+
+.main-content {
+  margin-left: 240px;
+  padding: 20px 25px;
+  width: calc(100% - 240px);
+}
+
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 18px 0;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 680px;
   display: flex;
   align-items: center;
-  justify-content: start;
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-  border: none;
+  padding: 6px 16px;
+  background: #16161a;
+  border-radius: 40px;
+  border: 1px solid #2d2d35;
+  transition: 0.3s ease;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
 
-  padding: 7px 15px;
-  margin: 10px 0px;
+.search-box:hover {
+  border-color: #8a6bff;
+  box-shadow: 0px 0px 20px rgba(138, 107, 255, 0.35);
+}
+
+.search-icon-btn {
+  padding: 10px;
+  border-radius: 50%;
+  background: #23232a;
+  color: #8a6bff;
+  margin-left: 8px;
+  transition: 0.3s ease;
+}
+
+.search-icon-btn:hover {
+  transform: scale(1.1);
+  background: rgba(138, 107, 255, 0.18);
+}
+
+.videos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 22px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.video-card {
+  background: #17171b;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  border-color: #8a6bff;
+  box-shadow: 0 6px 20px rgba(138, 107, 255, 0.25);
+}
+
+.react-player {
+  width: 100% !important;
+  height: 78vh !important;
+  background: #131316;
   border-radius: 20px;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.45);
 }
 
-@media screen and (max-width: 900px) {
-  .category-btn {
-    margin: 10px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .copyright {
-    display: none !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .scroll-horizontal {
-    overflow: auto !important;
-  }
-
-  .react-player {
-    height: 45vh !important;
-  }
-  .search-bar {
+@media (max-width: 900px) {
+  .sidebar {
     width: 200px;
+    min-width: 200px;
+  }
+  .main-content {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 750px) {
+  .sidebar {
+    display: none;
+  }
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+  .search-wrapper {
+    padding: 12px;
   }
 }
